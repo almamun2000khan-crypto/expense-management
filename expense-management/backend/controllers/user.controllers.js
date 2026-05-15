@@ -10,11 +10,12 @@ const generateToken = (id) => {
 
 const isProduction = process.env.NODE_ENV === "production";
 
+// সরাসরি true এবং "none" করে দিন যাতে কোনো সন্দেহ না থাকে
 const cookieOptions = {
   httpOnly: true,
   maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-  secure: isProduction, // Set to true in production (HTTPS)
-  sameSite: isProduction ? "none" : "lax", // "none" allows cross-domain cookies
+  secure: true,   // প্রোডাকশনে এটি অবশ্যই true হতে হবে
+  sameSite: "none", // আলাদা ডোমেইনের (Cross-site) জন্য এটি বাধ্যতামূলক
 };
 
 const registerUser = async (req, res) => {
