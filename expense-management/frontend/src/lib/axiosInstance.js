@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000/api/v1/';
+const backendUrl = import.meta.env.VITE_API_BASE_URL || 'https://expense-management-2-rpqv.onrender.com/api/v1';
 
 const axiosInstance = axios.create({
   baseURL: backendUrl,
