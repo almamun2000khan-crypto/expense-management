@@ -15,10 +15,12 @@ connectDB();
 
 const app = express();
 
-const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+const frontendUrl = process.env.FRONTEND_URL || 'https://expense-management-henna-nine.vercel.app';
+
 app.use(cors({
   origin: frontendUrl,
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"], // বাড়তি নিরাপত্তার জন্য এটি যোগ করা ভালো
 }));
 
 app.use(express.json());
